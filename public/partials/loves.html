@@ -1,0 +1,10 @@
+<div class="container text-center">
+    <h3>If i was from <br><span>{{ love.country }}</span>...<br>i will always say...</h3>
+	<h1>{{ love.word }}</h1>
+	<button class="btn btn-lg btn-default" ng-click="GetRandomLove()">Shuffle</button>
+
+	<form>
+	<select ng-model="short" ng-change="GetLoveByShort()">
+		<option ng-repeat="love in loves" value="{{love.short}}">{{love.country}}</option>
+	</select>
+</div>

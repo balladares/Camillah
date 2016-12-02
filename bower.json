@@ -1,0 +1,23 @@
+{
+  "name": "camilla",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "balladares"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.9",
+    "angular": "^1.5.9",
+    "bootstrap": "^3.3.7"
+  }
+}
