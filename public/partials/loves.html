@@ -1,6 +1,8 @@
 <div class="container text-center">
-    <h3>If i was from <br><span>{{ love.country }}</span>...<br>i will always say...</h3>
-	<h1>{{ love.word }}</h1>
+    <h3 >If i was from </h3>
+    <div class="country" fadeup-on-change="love.country" >{{ love.country }}</div>
+    <h3>i will always say...</h3>
+	<h1 wobble-on-change="love.country">{{ love.word }}</h1>
 	<button class="btn btn-lg btn-default" ng-click="GetRandomLove()">Shuffle</button>
 
 	<form>
