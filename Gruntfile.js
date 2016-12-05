@@ -30,12 +30,27 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'public/js',
                     src: '**/*.js',
-                    dest: 'public/js'
+                    dest: 'public/js',
+                    ext: '.min.js'
                 }, {
                     expand: true,
                     cwd: 'public/js/controllers',
                     src: '**/*.js',
-                    dest: 'public/js/controllers'
+                    dest: 'public/js/controllers',
+                    ext: '.min.js'
+                }, {
+                    expand: true,
+                    cwd: 'public/js/directives',
+                    src: '**/*.js',
+                    dest: 'public/js/directives',
+                    ext: '.min.js'
+                },
+                 {
+                    expand: true,
+                    cwd: 'public/js/services',
+                    src: '**/*.js',
+                    dest: 'public/js/services',
+                    ext: '.min.js'
                 }]
             }
         },
