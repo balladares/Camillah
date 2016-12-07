@@ -1,7 +1,8 @@
-﻿var express = require('express'),
+﻿// Load expres and modules
+var express = require('express'),
     expressLoad = require('express-load');
 
-module.exports = function () {
+module.exports = function() {
     var app = express();
 
     // App info variables
@@ -15,12 +16,8 @@ module.exports = function () {
     app.use('/js', express.static('public'));
     app.use('/partials', express.static('public'))
 
-    // View engine e view path
-    app.set('view engine', 'ejs');
-    app.set('views', './app/views');
-
     // Config express-load
-    expressLoad('models', {cwd: 'app'})
+    expressLoad('models', { cwd: 'app' })
         .then('controllers')
         .then('routes')
         .into(app);

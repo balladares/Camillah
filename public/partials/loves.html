@@ -1,12 +1,12 @@
 <div class="container text-center">
-    <h3 >If i was from </h3>
-    <div class="country" fadeup-on-change="love.country" >{{ love.country }}</div>
+    <h3>If i was from </h3>
+    <div class="country" fadeup-on-change="love.country">{{ love.country }}</div>
     <h3>i will always say...</h3>
-	<h1 wobble-on-change="love.country">{{ love.word }}</h1>
-	<button class="btn btn-lg btn-default" ng-click="GetRandomLove()">Shuffle</button>
+    <h1 wobble-on-change="love.country">{{ love.word }}</h1>
+    <button class="btn btn-lg btn-default" ng-click="GetRandomLove()">Shuffle</button>
 
-	<form>
-	<select ng-model="short" ng-change="GetLoveByShort()">
-		<option ng-repeat="love in loves" value="{{love.short}}">{{love.country}}</option>
+    <form>
+        <select ng-model="short" ng-change="GetLoveByShort()">
+		<option ng-repeat="love in loves | orderBy: 'country'" value="{{love.short}}">{{love.country}}</option>
 	</select>
 </div>
