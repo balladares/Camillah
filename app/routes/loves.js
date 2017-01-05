@@ -9,4 +9,6 @@ module.exports = function(app){
 
 	// Return random love
 	app.get('/api/random/loves', controller.RandomLoves);
+
+	app.get('/api/teste', controller.dale);
 }

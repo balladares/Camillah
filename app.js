@@ -3,7 +3,7 @@ var http = require('http');
 var app = require('./config/express')();
 
 // Mongo connect
-require('./config/database.js')('mongodb://localhost:27017/camillah');
+require('./config/database.js')('mongodb://127.0.0.1:27017/camillah');
 
 // Create server
 http.createServer(app).listen(app.get('port'), function() {

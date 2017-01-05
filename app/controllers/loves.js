@@ -37,8 +37,10 @@ var words = [
 			}
 		];
 
-module.exports = function(){
+
+module.exports = function(app){
 	var controller = {};
+    var loves = app.models.loves;
 
 	// Return all words
 	controller.Loves = function(req, res){
@@ -60,6 +62,23 @@ module.exports = function(){
 	// Return ramdom word
 	controller.RandomLoves = function(req,res){
 		res.json(words[Math.floor(Math.random() * words.length)]);
+	}
+
+	controller.dale = function(req,res){
+		var teste = new loves({
+			country: 'Brazil',
+			short: 'PT-BR',
+			word: 'Te amo.'
+		});
+
+		teste.save(function(err, succ){
+			if(err) {
+				res.json(err);
+			}else{
+				res.json(succ);
+			}
+			
+		});
 	}
 
 	return controller;
