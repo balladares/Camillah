@@ -5,10 +5,10 @@ module.exports = function(app) {
     app.get('/api/get/loves', controller.GetAllLoves);
 
     // Return alove with specific id
-    app.get('/api/get/love/:id', controller.LoveById);
+    app.get('/api/get/loves/:id', controller.LoveById);
 
     // Return love with especific short
-    app.get('/api/get/loves/:short', controller.LovesByShort);
+    app.get('/api/get/love/:short', controller.LovesByShort);
 
     // Return random love
     app.get('/api/get/random/loves', controller.RandomLove);

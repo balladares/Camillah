@@ -36,6 +36,7 @@ var words = [{
     }
 ];
 
+var mongoose = require('mongoose');
 
 module.exports = function(app) {
     // Create controller object
@@ -45,30 +46,24 @@ module.exports = function(app) {
 
     // Return especific love by id value
     controller.LoveById = function(req, res) {
-        var _id = req.params.id;
+        var id = mongoose.mongo.ObjectId(req.params.id);
 
-        Loves.findById(_id).exec()
-            .then(function(love) {
-                if (!love) {
-                    res.json({ CamillahApp: { HasError: true, Error: 'Nothing love find with the _id: ' + _id } })
-                } else {
-                    res.json({ CamillahApp: { HasError: false, Love: love } });
-                }
-            }, function(err) {
-                res.json({ CamillahApp: { HasError: true, Error: err } });
-            });
+        Loves.find({_id:id} , function(err, dale){
+			res.json(dale);
+		});
     };
 
     // Return especific word by short value
     controller.LovesByShort = function(req, res) {
         var short = req.params.short;
-
-        Loves.find().where('short').equals(short).exec()
+		
+        Loves.find({short: short}).exec()
             .then(function(love) {
                 if (!love) {
-                    res.json({ CamillahApp: { HasError: true, Error: 'Nothing loves find with this short: ' + _id } })
+                    res.json({ CamillahApp: { HasError: true, Error: 'Nothing loves find with this short: ' + short } })
                 } else {
                     res.json({ CamillahApp: { HasError: false, Love: love } });
+					console.log(love);
                 }
             }, function(err) {
                 res.json({ CamillahApp: { HasError: true, Error: err } });
@@ -102,15 +97,13 @@ module.exports = function(app) {
 
     // Add loves
     controller.AddLove = function(req, res) {
-        console.log(req.body);
-
-        Loves.create(req.body)
+        Loves.create(req.body.loves)
             .then(function(success) {
                 res.status(201).json({ CamillahApp: { HasError: false, Success: success } });
             }, function(err) {
                 res.status(500).json({ CamillahApp: { HasError: true, Error: err } });
             });
-    }
+    };
 
     return controller;
 };

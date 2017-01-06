@@ -18,6 +18,7 @@ module.exports = function() {
     app.use('/js', express.static('public'));
     app.use('/partials', express.static('public'));
     app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({extended: true}));
     app.use(methodOverride());
 
     // Config express-load
