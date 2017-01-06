@@ -1,14 +1,19 @@
-module.exports = function(app){
-	var controller = app.controllers.loves;
+module.exports = function(app) {
+    var controller = app.controllers.loves;
 
-	// Return all loves
-	app.get('/api/loves', controller.Loves);
+    // Return all loves or specific love by id
+    app.get('/api/get/loves', controller.GetAllLoves);
 
-	// Return love with especific short
-	app.get('/api/loves/:short', controller.LovesByShort);
+    // Return alove with specific id
+    app.get('/api/get/love/:id', controller.LoveById);
 
-	// Return random love
-	app.get('/api/random/loves', controller.RandomLoves);
+    // Return love with especific short
+    app.get('/api/get/loves/:short', controller.LovesByShort);
 
-	app.get('/api/teste', controller.dale);
-}
+    // Return random love
+    app.get('/api/get/random/loves', controller.RandomLove);
+
+    // Add love
+    app.post('/api/add/love', controller.AddLove);
+
+};

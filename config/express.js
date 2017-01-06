@@ -1,6 +1,8 @@
 ﻿// Load expres and modules
 var express = require('express'),
-    expressLoad = require('express-load');
+    expressLoad = require('express-load'),
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override');
 
 module.exports = function() {
     var app = express();
@@ -14,7 +16,9 @@ module.exports = function() {
     app.use(express.static('./public'));
     app.use('/vendor', express.static('public'));
     app.use('/js', express.static('public'));
-    app.use('/partials', express.static('public'))
+    app.use('/partials', express.static('public'));
+    app.use(bodyParser.json());
+    app.use(methodOverride());
 
     // Config express-load
     expressLoad('models', { cwd: 'app' })
